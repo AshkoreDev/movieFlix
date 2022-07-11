@@ -142,12 +142,25 @@ h1 {
 
 /* SEARCH SECTION*/
 .sectionSearch {
-	margin: 10px 0;
+	margin: 10px 0 0;
 	gap: 20px;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
+}
+
+.sectionSearch__title {
+	width: 100%;
+	gap: 20px;
+	display: flex;
+	align-items: center;
+	/*background-color: white;*/
+}
+
+.sectionSearch__title--icon {
+	width: 25px;
+	height: 25px;
 }
 
 .sectionSearch--title {
@@ -380,6 +393,14 @@ footer {
 
   .sectionSearch {
   	justify-content: space-between;
+  }
+
+  .sectionSearch__title {
+  	width: 300px;
+  }
+
+  .sectionSearch__title--icon {
+  	display: none;
   }
 
   .cardContainer {
