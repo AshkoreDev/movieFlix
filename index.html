@@ -44,25 +44,28 @@
 
 		<!-- SEARCH SECTION -->
 		<section class="section__container sectionSearch">
-			<h2 class="sectionSearch--title">Titulo de la pelicula</h2>
+			<div class="sectionSearch__title">
+				<img src="https://img.icons8.com/ios/FFFFFF/double-left.png" alt="Icono Flecha" width="25" height="25" class="sectionSearch__title--icon" id="backArrow">
+				<h2 class="sectionSearch--title" id="searchTitle">Titulo de la pelicula</h2>
+			</div>
 			<form>
 				<label for="searchInput"></label>
 				<input type="text" class="sectionSearch--input" id="searchInput" placeholder="Buscar..." autocomplete="off">
 				<button class="sectionSearch--button">
-					<img src="https://img.icons8.com/FFFFFF/search" alt="Icono Búsqueda" width="25" height="25">
+					<img src="https://img.icons8.com/FFFFFF/search" alt="Icono Búsqueda" width="25" height="25" id="searchBtn">
 				</button>
 			</form>
 		</section>
 		<!-- END SEARCH SECTION -->
 
 		<!-- TENDRING SECTION -->
-		<section class="section__container">
+		<section class="section__container" id="trendingSection">
 			<h2 class="section__container--title">Tendencia en Películas del Día</h2>
 			<section class="section__containerHorizontal">
 				<figure class="arrow__container arrow--left">
 					<img src="https://img.icons8.com/ios-filled/000000/double-left.png" alt="Icono Flecha" width="24" height="24" class="arrow">
 				</figure>
-				<section class="section__containerHorizontal__carrousel track">
+				<section class="section__containerHorizontal__carrousel" id="trendingDayMoviesContainer">
 					<article class="cardContainer">
 						<img class="cardContainer--img">
 						<h4 class="cardContainer--title">Titulo de la pelicula</h4>
@@ -162,7 +165,7 @@
 				<figure class="arrow__container arrow--left">
 					<img src="https://img.icons8.com/ios-filled/000000/double-left.png" alt="Icono Flecha" width="24" height="24" class="arrow">
 				</figure>
-				<section class="section__containerHorizontal__carrousel track">
+				<section class="section__containerHorizontal__carrousel" id="trendingWeekMoviesContainer">
 					<article class="cardContainer">
 						<img class="cardContainer--img">
 						<h4 class="cardContainer--title">Titulo de la pelicula</h4>
@@ -262,7 +265,7 @@
 				<figure class="arrow__container arrow--left">
 					<img src="https://img.icons8.com/ios-filled/000000/double-left.png" alt="Icono Flecha" width="24" height="24" class="arrow">
 				</figure>
-				<section class="section__containerHorizontal__carrousel track">
+				<section class="section__containerHorizontal__carrousel" id="trendingDayTvContainer">
 					<article class="cardContainer">
 						<img class="cardContainer--img">
 						<h4 class="cardContainer--title">Titulo de la pelicula</h4>
@@ -362,7 +365,7 @@
 				<figure class="arrow__container arrow--left">
 					<img src="https://img.icons8.com/ios-filled/000000/double-left.png" alt="Icono Flecha" width="24" height="24" class="arrow">
 				</figure>
-				<section class="section__containerHorizontal__carrousel track">
+				<section class="section__containerHorizontal__carrousel" id="trendingWeekTvContainer">
 					<article class="cardContainer">
 						<img class="cardContainer--img">
 						<h4 class="cardContainer--title">Titulo de la pelicula</h4>
@@ -460,30 +463,9 @@
 		<!-- END TENDRING SECTION -->
 
 		<!-- CATEGORIES SECTION -->
-		<section class="section__container">
+		<section class="section__container" id="categorySection">
 			<h2 class="section__container--title">Categorias</h2>
-			<section class="sectionCategory">
-				<article class="sectionCategory__card">
-					<h5 class="sectionCategory__card--title">titulo categoria</h5>
-				</article>
-				<article class="sectionCategory__card">
-					<h5 class="sectionCategory__card--title">titulo categoria</h5>
-				</article>
-				<article class="sectionCategory__card">
-					<h5 class="sectionCategory__card--title">titulo categoria</h5>
-				</article>
-				<article class="sectionCategory__card">
-					<h5 class="sectionCategory__card--title">titulo categoria</h5>
-				</article>
-				<article class="sectionCategory__card">
-					<h5 class="sectionCategory__card--title">titulo categoria</h5>
-				</article>
-				<article class="sectionCategory__card">
-					<h5 class="sectionCategory__card--title">titulo categoria</h5>
-				</article>
-				<article class="sectionCategory__card">
-					<h5 class="sectionCategory__card--title">titulo categoria</h5>
-				</article>
+			<section class="sectionCategory" id="categoriesContainer">
 				<article class="sectionCategory__card">
 					<h5 class="sectionCategory__card--title">titulo categoria</h5>
 				</article>
@@ -498,17 +480,9 @@
 		<!-- END CATEGORIES SECTION -->
 
 		<!-- BY SEARCH SECTION -->
-		<section class="section__container">
+		<section class="section__container" id="bySearchSection">
 			<h2 class="section__container--title">Titulo de la busqueda</h2>
-			<section class="section__containerVertical">
-				<article class="cardContainer">
-					<img class="cardContainer--img">
-					<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-				</article>
-				<article class="cardContainer">
-					<img class="cardContainer--img">
-					<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-				</article>
+			<section class="section__containerVertical" id="bySearchContainer">
 				<article class="cardContainer">
 					<img class="cardContainer--img">
 					<h4 class="cardContainer--title">Titulo de la pelicula</h4>
@@ -526,13 +500,9 @@
 		<!-- END BY SEARCH SECTION -->
 
 		<!-- BY CATEGORY SECTION -->
-		<section class="section__container">
+		<section class="section__container" id="byCategorySection">
 			<h2 class="section__container--title">Titulo de la categoria</h2>
-			<section class="section__containerVertical">
-				<article class="cardContainer">
-					<img class="cardContainer--img">
-					<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-				</article>
+			<section class="section__containerVertical" id="byCategoriesContainer">
 				<article class="cardContainer">
 					<img class="cardContainer--img">
 					<h4 class="cardContainer--title">Titulo de la pelicula</h4>
@@ -550,7 +520,7 @@
 		<!-- END BY CATEGORY SECTION -->
 
 		<!-- CARD DETAILSSECTION -->
-		<section class="section__container">
+		<section class="section__container" id="detailsCardSection">
 			<article class="oneCardContainer">
 				<figure class="oneCardContainer__img">
 					<img src="" alt="">
@@ -599,5 +569,7 @@
     </div>
     <p class="footer__info">Aracely Alba @AshkoreDev || &copy; 2022</p>
 	</footer>
+
+	<script src="./src/main.js" type="module"></script>
 </body>
 </html>
