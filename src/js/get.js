@@ -1,4 +1,7 @@
 import './nodes.js';
+import { API_KEY } from './key.js';
+import { createCard, createCardWithDetails, createOneCard, createCategoryCard } from './cards.js';
+
 
 // AXIOS
 const api = axios.create({
@@ -12,11 +15,6 @@ const api = axios.create({
 });
 
 
-// NODES
-const dayMoviesNode = [];
-const weekMoviesNode = [];
-const dayTvNode = [];
-const weekTvNode = [];
 const categoriesNode = [];
 const byCategoryNode = [];
 const bySearchNode = [];
@@ -31,7 +29,11 @@ async function getTrendingMoviesDay() {
   const { data } = await api('trending/movie/day');
   const movies = data.results;
 
-  cardWithDetails(movies, dayMoviesNode, trendingDayMoviesContainer, typeMovie);
+  console.log(movies);
+
+  const dayMoviesNode = document.createDocumentFragment();
+
+  createCardWithDetails(movies, dayMoviesNode, trendingDayMoviesContainer, typeMovie);
 }
 
 async function getTrendingMoviesWeek() {
@@ -39,7 +41,9 @@ async function getTrendingMoviesWeek() {
   const { data } = await api('trending/movie/week');
   const movies = data.results;
 
-  cardWithDetails(movies, weekMoviesNode, trendingWeekMoviesContainer,typeMovie);
+  const weekMoviesNode = document.createDocumentFragment();
+
+  createCardWithDetails(movies, weekMoviesNode, trendingWeekMoviesContainer,typeMovie);
 }
 
 async function getTrendingTvDay() {
@@ -47,7 +51,9 @@ async function getTrendingTvDay() {
   const { data } = await api('trending/tv/day');
   const series = data.results;
 
-  cardWithDetails(series, dayTvNode, trendingDayTvContainer, typeTv);
+  const dayTvNode = document.createDocumentFragment();
+
+  createCardWithDetails(series, dayTvNode, trendingDayTvContainer, typeTv);
 }
 
 async function getTrendingTvWeek() {
@@ -55,7 +61,9 @@ async function getTrendingTvWeek() {
   const { data } = await api('trending/tv/week');
   const series = data.results;
 
-  cardWithDetails(series, weekTvNode, trendingWeekTvContainer, typeTv);
+  const weekTvNode = document.createDocumentFragment();
+
+  createCardWithDetails(series, weekTvNode, trendingWeekTvContainer, typeTv);
 }
 // END TRENDING GET
 
@@ -70,3 +78,5 @@ async function getTrendingTvWeek() {
 
 // BY ID GET
 // END BY ID GET
+
+export { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek};

@@ -1,9 +1,9 @@
 const nodes = (id) => document.querySelector(id);
 
 // MENU
-const home = $('#home');
-const search = $('#search');
-const categories = $('#categories');
+const home = nodes('#home');
+const search = nodes('#search');
+const categories = nodes('#categories');
 
 // SECTIONS
 const trendingSection = nodes('#trendingSection');
@@ -28,5 +28,5 @@ const byCategoriesContainer = nodes('#byCategoriesContainer');
 
 // SEARCH
 const searchTitle = nodes('#searchTitle');
-const searchInput = $('#searchInput');
+const searchInput = nodes('#searchInput');
 const bySearchContainer = nodes('#bySearchContainer');

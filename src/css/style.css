@@ -102,7 +102,6 @@ h1 {
 
 .section__containerHorizontal__carrousel {
 	display: flex;
-	gap: 15px;
 	justify-content: center;
 }
 
@@ -308,7 +307,7 @@ form {
 	text-align: center;
 }
 
-.oneCardContainer__info--duration {
+.oneCardContainer__info--time {
 	margin: 30px 0 10px;
 	text-align: center;
 }
