@@ -21,8 +21,42 @@ const categoriesNode = [];
 const byCategoryNode = [];
 const bySearchNode = [];
 
+const typeMovie = 'movie';
+const typeTv = 'tv';
+
 
 // TRENDING GET
+async function getTrendingMoviesDay() {
+    
+  const { data } = await api('trending/movie/day');
+  const movies = data.results;
+
+  cardWithDetails(movies, dayMoviesNode, trendingDayMoviesContainer, typeMovie);
+}
+
+async function getTrendingMoviesWeek() {
+   
+  const { data } = await api('trending/movie/week');
+  const movies = data.results;
+
+  cardWithDetails(movies, weekMoviesNode, trendingWeekMoviesContainer,typeMovie);
+}
+
+async function getTrendingTvDay() {
+    
+  const { data } = await api('trending/tv/day');
+  const series = data.results;
+
+  cardWithDetails(series, dayTvNode, trendingDayTvContainer, typeTv);
+}
+
+async function getTrendingTvWeek() {
+   
+  const { data } = await api('trending/tv/week');
+  const series = data.results;
+
+  cardWithDetails(series, weekTvNode, trendingWeekTvContainer, typeTv);
+}
 // END TRENDING GET
 
 // CATEGORY GET
