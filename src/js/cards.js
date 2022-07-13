@@ -27,10 +27,10 @@ function createCard(data, node, container) {
 		cardContainer.className = 'cardContainer';
 		cardImg.className = 'cardContainer--img';
 		cardTitle.className = 'cardContainer--title';
-		
+
 		cardContainer.append(cardImg);
 		cardContainer.append(cardTitle);
-		
+
 		node.append(cardContainer);
 	});
 
@@ -38,7 +38,7 @@ function createCard(data, node, container) {
 }
 
 function createCardWithDetails(data, node, container, type) {
-	
+
 	data.forEach(item => {
 
 		const cardContainer = document.createElement('article');
@@ -50,7 +50,7 @@ function createCardWithDetails(data, node, container, type) {
 		const cardRanking = document.createElement('p');
 		const cardDate = document.createElement('p');
 
-		cardImg.setAttribute('src', `${API_IMG}154${item.poster_path}`); 
+		cardImg.setAttribute('src', `${API_IMG}154${item.poster_path}`);
 		cardRankingIcon.setAttribute('src', STAR_IMG);
 		cardRankingIcon.setAttribute('alt', 'Valoración');
 		cardRanking.textContent = item.vote_average;
@@ -77,14 +77,14 @@ function createCardWithDetails(data, node, container, type) {
 
 		cardRankingContainer.append(cardRankingIcon);
 		cardRankingContainer.append(cardRanking);
-		
+
 		cardDetails.append(cardRankingContainer);
 		cardDetails.append(cardDate);
 
 		cardContainer.append(cardImg);
 		cardContainer.append(cardTitle);
 		cardContainer.append(cardDetails);
-		
+
     node.append(cardContainer);
 	});
 
@@ -92,7 +92,7 @@ function createCardWithDetails(data, node, container, type) {
 }
 
 function createOneCard() {
-	
+
 	const cardContainer = document.createElement('article');
 	const cardImgContainer = document.createElement('figure');
 	const cardImg = document.createElement('img');
@@ -118,7 +118,7 @@ function createOneCard() {
 	cardInfoDetailsDate.className = 'cardContainer__details--date';
 	cardInfoCategoriesContainer.className = 'oneCardContainer__info__categories';
 	cardDescriptionContainer.className = 'oneContainer__description';
-	
+
 	cardInfoDetailsRankingIcon.setAttribute('src', STAR_IMG);
 	cardInfoDetailsRankingIcon.setAttribute('alt', 'Valoración');
 	// ojo
@@ -153,7 +153,7 @@ function createOneCard() {
 }
 
 function createCategoryCard(data, node, container) {
-	
+
 	data.forEach(item => {
 
 		const categoryCard = document.createElement('article');

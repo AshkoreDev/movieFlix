@@ -31,6 +31,10 @@ main {
 	min-height: calc(100vh - 142px);
 }
 
+.inactive {
+	display: none;
+}
+
 /* MENU WEB */
 .menuWeb {
 	padding: 15px 20px;
@@ -57,7 +61,7 @@ h1 {
 
 /* MENU MOBILE */
 .menuMobile {
-	width: 320px;
+	width: 100%;
 	padding: 10px 0;
 	position: fixed;
 	bottom: 0;
@@ -244,7 +248,7 @@ form {
 }
 
 .cardContainer--title {
-	height: 40px;
+	height: 35px;
 	margin: 10px 0;
 	text-align: center;
 }
@@ -254,8 +258,8 @@ form {
 	padding: 0px 10px;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	font-size: 14px;
+	justify-content: space-around;
+	font-size: 12px;
 	color: lightgrey;
 }
 
@@ -354,7 +358,7 @@ footer {
 /* MEDIA QUERYS */
 @media (min-width: 768px) {
 	main {
-		min-height: calc(100vh - 132px);	
+		min-height: calc(100vh - 132px);
 	}
 
 	.menuMobile {
@@ -403,8 +407,12 @@ footer {
   }
 
   .cardContainer {
-  	width: 200px;
+  	width: 180px;
   }
+
+  .cardContainer--img {
+		height: 240px;
+	}
 
   .oneCardContainer__info {
   	width: 400px;
