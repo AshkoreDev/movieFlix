@@ -87,6 +87,30 @@ async function getCategories() {
 // END CATEGORY GET
 
 // BY CATEGORY GET
+async function getByCategory(id, name, type) {
+
+  const [nameOne, nameTwo, nameThree] = name.split('%20');    
+
+  nameTwo ? byCategoryTitle.innerHTML = `${nameOne} ${nameTwo}` :  byCategoryTitle.innerHTML = `${nameOne}`;  
+  nameThree ? byCategoryTitle.innerHTML = `${nameOne} ${nameTwo} ${nameThree}` :
+
+  byCategoryContainer.classList.remove("inactive");
+
+  const { data } = await api(`discover/${type}`, {
+    params: {
+      with_genres: id
+    }
+  });
+
+  const info = data.results;
+
+  console.log('by categories');
+  console.log({info});
+
+  const byCategoryNode = document.createDocumentFragment();
+
+  createCard(info, byCategoryNode, byCategoryContainer);
+}
 // END BY CATEGORY GET
 
 // BY SEARCH GET
@@ -95,4 +119,4 @@ async function getCategories() {
 // BY ID GET
 // END BY ID GET
 
-export { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories };
+export { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory };

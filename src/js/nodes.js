@@ -24,9 +24,11 @@ const trendingWeekTvContainer = nodes('#trendingWeekTvContainer');
 
 // CATEGORIES
 const categoriesContainer = nodes('#categoriesContainer');
-const byCategoriesContainer = nodes('#byCategoriesContainer');
+const byCategoryContainer = nodes('#byCategoryContainer');
+const byCategoryTitle = nodes('#byCategoryTitle');
 
 // SEARCH
 const searchTitle = nodes('#searchTitle');
 const searchInput = nodes('#searchInput');
 const bySearchContainer = nodes('#bySearchContainer');
+const bySearchTitle = nodes('#bySearchTitle');

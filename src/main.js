@@ -1,4 +1,4 @@
-import { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories } from './js/get.js';
+import { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory } from './js/get.js';
 import './js/nodes.js';
 
 window.addEventListener('DOMContentLoaded', navigator, false);
@@ -54,6 +54,8 @@ function categoryPage() {
   byCategorySection.classList.add('inactive');
   detailsCardSection.classList.add('inactive');
 
+  categoriesContainer.innerHTML = "";
+
   getCategories();
 }
 
@@ -65,6 +67,15 @@ function byCategoryPage() {
   bySearchSection.classList.add('inactive');
   byCategorySection.classList.remove('inactive');
   detailsCardSection.classList.add('inactive');
+
+  byCategoryContainer.innerHTML = "";
+  byCategoryTitle.innerHTML = "";
+
+  const [url, info] = location.hash.split('=');
+  const [id, name] = info.split('--');
+  
+  getByCategory(id, name, 'movie');
+  getByCategory(id, name, 'tv');
 }
 
 function movieDetailsPage() {
@@ -95,6 +106,11 @@ function homePage() {
   bySearchSection.classList.add('inactive');
   byCategorySection.classList.add('inactive');
   detailsCardSection.classList.add('inactive');
+
+  trendingWeekMoviesContainer.innerHTML = "";
+  trendingDayTvContainer.innerHTML = "";
+  trendingWeekTvContainer.innerHTML = "";
+  categoriesContainer.innerHTML = "";
 
   getTrendingMoviesDay();
   getTrendingMoviesWeek();

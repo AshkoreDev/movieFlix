@@ -11,17 +11,15 @@ function createCard(data, node, container) {
 
 		cardImg.setAttribute('src', `${API_IMG}154${item.poster_path}`);
 
-		if(item.title || item.release_date) {
+		if(item.title) {
 
       cardImg.setAttribute('alt', `${item.title} Poster`);
       cardTitle.textContent = item.title;
-      cardDate.textContent = item.release_date;
 
-    } else if(item.name || item.first_air_date) {
+    } else if(item.name){
 
       cardImg.setAttribute('alt', `${item.name} Poster`);
       cardTitle.textContent = item.name;
-      cardDate.textContent = item.first_air_date;
     }
 
 		cardContainer.className = 'cardContainer';
@@ -161,6 +159,7 @@ function createCategoryCard(data, node, container) {
 
     categoryTitle.textContent = item.name;
     categoryTitle.setAttribute('id', `id${item.id}`);
+    categoryTitle.addEventListener('click', () => location.hash = `#bycategory=${item.id}--${item.name}`);
 
 		categoryCard.className = 'sectionCategory__card';
 		categoryTitle.className = 'sectionCategory__card--title';
