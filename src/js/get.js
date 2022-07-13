@@ -29,6 +29,7 @@ async function getTrendingMoviesDay() {
   const { data } = await api('trending/movie/day');
   const movies = data.results;
 
+  console.log('movies');
   console.log(movies);
 
   const dayMoviesNode = document.createDocumentFragment();
@@ -61,6 +62,9 @@ async function getTrendingTvWeek() {
   const { data } = await api('trending/tv/week');
   const series = data.results;
 
+  console.log('series');
+  console.log(series);
+
   const weekTvNode = document.createDocumentFragment();
 
   createCardWithDetails(series, weekTvNode, trendingWeekTvContainer, typeTv);
@@ -68,6 +72,18 @@ async function getTrendingTvWeek() {
 // END TRENDING GET
 
 // CATEGORY GET
+async function getCategories() {
+   
+  const { data } = await api('genre/movie/list');
+  const categories = data.genres;
+
+  console.log('categories');
+  console.log(categories);
+
+  const categoriesNode = document.createDocumentFragment();
+
+  createCategoryCard(categories, categoriesNode, categoriesContainer);
+}
 // END CATEGORY GET
 
 // BY CATEGORY GET
@@ -79,4 +95,4 @@ async function getTrendingTvWeek() {
 // BY ID GET
 // END BY ID GET
 
-export { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek};
+export { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories };

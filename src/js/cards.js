@@ -34,7 +34,7 @@ function createCard(data, node, container) {
 		node.append(cardContainer);
 	});
 
-	container.append(...node);
+	container.appendChild(node);
 }
 
 function createCardWithDetails(data, node, container, type) {
@@ -169,7 +169,7 @@ function createCategoryCard(data, node, container) {
     node.append(categoryCard);
 	});
 
-	container.append(...node);
+	container.appendChild(node);
 }
 
 export { createCard, createCardWithDetails, createOneCard, createCategoryCard };
