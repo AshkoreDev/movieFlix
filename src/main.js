@@ -1,4 +1,4 @@
-import { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory, getBySearch } from './js/get.js';
+import { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory, getBySearch, getById } from './js/get.js';
 import './js/nodes.js';
 
 window.addEventListener('DOMContentLoaded', navigator, false);
@@ -94,6 +94,11 @@ function movieDetailsPage() {
   bySearchSection.classList.add('inactive');
   byCategorySection.classList.add('inactive');
   detailsCardSection.classList.remove('inactive');
+
+  detailsCardSection.innerHTML = "";
+
+  const [url, id] = location.hash.split('=');
+  getById(id, 'movie');
 }
 
 function tvDetailsPage() {
@@ -104,6 +109,11 @@ function tvDetailsPage() {
   bySearchSection.classList.add('inactive');
   byCategorySection.classList.add('inactive');
   detailsCardSection.classList.remove('inactive');
+
+  detailsCardSection.innerHTML = "";
+
+  const [url, id] = location.hash.split('=');
+  getById(id, 'tv');
 }
 
 function homePage() {

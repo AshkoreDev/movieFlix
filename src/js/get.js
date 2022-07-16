@@ -14,11 +14,6 @@ const api = axios.create({
   }
 });
 
-
-const categoriesNode = [];
-const byCategoryNode = [];
-const bySearchNode = [];
-
 const typeMovie = 'movie';
 const typeTv = 'tv';
 
@@ -109,7 +104,7 @@ async function getByCategory(id, name, type) {
 
   const byCategoryNode = document.createDocumentFragment();
 
-  createCard(info, byCategoryNode, byCategoryContainer);
+  createCard(info, byCategoryNode, byCategoryContainer, type);
 }
 // END BY CATEGORY GET
 
@@ -117,7 +112,7 @@ async function getByCategory(id, name, type) {
 async function getBySearch(query, type) {
 
   bySearchTitle.textContent = query;
-  
+
   const { data } = await api(`search/${type}`, {
     params: {
       query: query
@@ -131,11 +126,22 @@ async function getBySearch(query, type) {
 
   const bySearchNode = document.createDocumentFragment();
 
-  createCard(info, bySearchNode, bySearchContainer);
+  createCard(info, bySearchNode, bySearchContainer, type);
 }
 // END BY SEARCH GET
 
 // BY ID GET
+async function getById(id, type) {
+
+  const { data } = await api(`${type}/${id}`);
+
+  console.log('by id');
+  console.log({data});
+
+  const byIdNode = document.createDocumentFragment();
+
+  createOneCard(data, byIdNode, detailsCardSection);
+}
 // END BY ID GET
 
-export { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory, getBySearch };
+export { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory, getBySearch, getById };

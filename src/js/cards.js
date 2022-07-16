@@ -1,7 +1,9 @@
 const API_IMG = 'https://image.tmdb.org/t/p/w'; //154
 const STAR_IMG = 'https://img.icons8.com/fluency/344/star.png';
 
-function createCard(data, node, container) {
+const cardCategoryNode = document.createDocumentFragment();
+
+function createCard(data, node, container, type) {
 
 	data.forEach(item => {
 
@@ -21,6 +23,8 @@ function createCard(data, node, container) {
       cardImg.setAttribute('alt', `${item.name} Poster`);
       cardTitle.textContent = item.name;
     }
+
+    cardContainer.addEventListener('click', () => location.hash = `#${type}=${item.id}`);
 
 		cardContainer.className = 'cardContainer';
 		cardImg.className = 'cardContainer--img';
@@ -53,18 +57,20 @@ function createCardWithDetails(data, node, container, type) {
 		cardRankingIcon.setAttribute('alt', 'Valoración');
 		cardRanking.textContent = item.vote_average;
 
-		if(item.title || item.release_date) {
+		if(item.title) {
 
       cardImg.setAttribute('alt', `${item.title} Poster`);
       cardTitle.textContent = item.title;
       cardDate.textContent = item.release_date;
 
-    	} else if(item.name || item.first_air_date) {
+    } else if(item.name) {
 
       cardImg.setAttribute('alt', `${item.name} Poster`);
       cardTitle.textContent = item.name;
       cardDate.textContent = item.first_air_date;
     }
+
+    cardContainer.addEventListener('click', () => location.hash = `#${type}=${item.id}`);
 
 		cardContainer.className = 'cardContainer';
 		cardImg.className = 'cardContainer--img';
@@ -89,7 +95,7 @@ function createCardWithDetails(data, node, container, type) {
 	container.appendChild(node);
 }
 
-function createOneCard() {
+function createOneCard(data, node, container, type) {
 
 	const cardContainer = document.createElement('article');
 	const cardImgContainer = document.createElement('figure');
@@ -117,23 +123,30 @@ function createOneCard() {
 	cardInfoCategoriesContainer.className = 'oneCardContainer__info__categories';
 	cardDescriptionContainer.className = 'oneContainer__description';
 
+	cardImg.setAttribute('src', `${API_IMG}342${data.poster_path}`);
 	cardInfoDetailsRankingIcon.setAttribute('src', STAR_IMG);
 	cardInfoDetailsRankingIcon.setAttribute('alt', 'Valoración');
-	// ojo
+	cardInfoDetailsRankingValue.textContent = data.vote_average;
+	cardDescription.textContent = data.overview;
+
 	if(data.title) {
 
     cardImg.setAttribute('alt', `${data.title} Poster`);
     cardInfoTitle.textContent = data.title;
     cardInfoDetailsDate.textContent = data.release_date;
+    cardInfoTime.textContent = `${data.runtime} minutos`;
 
-  } else {
+  } else if(data.name) {
 
     cardImg.setAttribute('alt', `${data.name} Poster`);
     cardInfoTitle.textContent = data.name;
     cardInfoDetailsDate.textContent = data.first_air_date;
+    cardInfoTime.textContent = `${data.number_of_seasons} temporadas || ${data.number_of_episodes} episodios`;
   }
 
-	cardInfoDetailsRankingContainer.append(cardInfoDetailsRankingIcon);
+  createCategoryCard(data.genres, cardCategoryNode, cardInfoCategoriesContainer);
+
+  cardInfoDetailsRankingContainer.append(cardInfoDetailsRankingIcon);
 	cardInfoDetailsRankingContainer.append(cardInfoDetailsRankingValue);
 	cardInfoDetailsContainer.append(cardInfoDetailsRankingContainer);
 	cardInfoDetailsContainer.append(cardInfoDetailsDate);
@@ -148,6 +161,9 @@ function createOneCard() {
 	cardContainer.append(cardImgContainer);
 	cardContainer.append(cardInfoContainer);
 	cardContainer.append(cardDescriptionContainer);
+
+	node.append(cardContainer);
+	container.append(node);
 }
 
 function createCategoryCard(data, node, container) {
