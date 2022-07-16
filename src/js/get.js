@@ -114,9 +114,28 @@ async function getByCategory(id, name, type) {
 // END BY CATEGORY GET
 
 // BY SEARCH GET
+async function getBySearch(query, type) {
+
+  bySearchTitle.textContent = query;
+  
+  const { data } = await api(`search/${type}`, {
+    params: {
+      query: query
+    }
+  });
+
+  const info = data.results;
+
+  console.log('by search');
+  console.log({info});
+
+  const bySearchNode = document.createDocumentFragment();
+
+  createCard(info, bySearchNode, bySearchContainer);
+}
 // END BY SEARCH GET
 
 // BY ID GET
 // END BY ID GET
 
-export { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory };
+export { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory, getBySearch };

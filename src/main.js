@@ -1,4 +1,4 @@
-import { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory } from './js/get.js';
+import { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory, getBySearch } from './js/get.js';
 import './js/nodes.js';
 
 window.addEventListener('DOMContentLoaded', navigator, false);
@@ -43,6 +43,14 @@ function bySearchPage() {
   bySearchSection.classList.remove('inactive');
   byCategorySection.classList.add('inactive');
   detailsCardSection.classList.add('inactive');
+
+  bySearchContainer.innerHTML = "";
+  bySearchTitle.innerHTML = "";
+  searchInput.value = "";
+
+  const [url, query] = location.hash.split('=');
+  getBySearch(query, 'movie');
+  getBySearch(query, 'tv');
 }
 
 function categoryPage() {
