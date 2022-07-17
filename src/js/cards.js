@@ -1,4 +1,5 @@
 import { lazyLoader } from './utils.js';
+import { getRecomendationsById } from './get.js';
 
 const API_IMG = 'https://image.tmdb.org/t/p/w'; //154
 const STAR_IMG = 'https://img.icons8.com/fluency/344/star.png';
@@ -163,8 +164,9 @@ function createOneCard(data, node, container, type) {
     cardInfoTime.textContent = `${data.number_of_seasons} temporadas || ${data.number_of_episodes} episodios`;
   }
 
-  createCategoryCard(data.genres, cardCategoryNode, cardInfoCategoriesContainer);
   lazyLoader.observe(cardImg);
+  createCategoryCard(data.genres, cardCategoryNode, cardInfoCategoriesContainer);
+  getRecomendationsById(type, data.id);
 
   cardInfoDetailsRankingContainer.append(cardInfoDetailsRankingIcon);
 	cardInfoDetailsRankingContainer.append(cardInfoDetailsRankingValue);

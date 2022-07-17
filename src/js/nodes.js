@@ -14,7 +14,8 @@ const trendingSection = nodes('#trendingSection');
 const categorySection = nodes('#categorySection');
 const bySearchSection = nodes('#bySearchSection');
 const byCategorySection = nodes('#byCategorySection');
-const detailsCardSection = nodes('#detailsCardSection');
+const byIdSection = nodes('#byIdSection');
+const recomendationsByIdSection = nodes('#recomendationsByIdSection');
 
 // BUTTONS
 const backArrow = nodes('#backArrow');
@@ -32,7 +33,9 @@ const byCategoryContainer = nodes('#byCategoryContainer');
 const byCategoryTitle = nodes('#byCategoryTitle');
 
 // SEARCH
-const searchTitle = nodes('#searchTitle');
 const searchInput = nodes('#searchInput');
 const bySearchContainer = nodes('#bySearchContainer');
 const bySearchTitle = nodes('#bySearchTitle');
+
+// BY ID
+const RecomendationsByIdContainer = nodes('#RecomendationsByIdContainer');

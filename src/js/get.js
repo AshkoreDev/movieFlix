@@ -23,11 +23,7 @@ async function getTrendingMoviesDay() {
   const { data } = await api('trending/movie/day');
   const movies = data.results;
 
-  console.log('movies');
-  console.log(movies);
-
   const dayMoviesNode = document.createDocumentFragment();
-
   createCardWithDetails(movies, dayMoviesNode, trendingDayMoviesContainer, typeMovie);
 }
 
@@ -37,7 +33,6 @@ async function getTrendingMoviesWeek() {
   const movies = data.results;
 
   const weekMoviesNode = document.createDocumentFragment();
-
   createCardWithDetails(movies, weekMoviesNode, trendingWeekMoviesContainer,typeMovie);
 }
 
@@ -47,7 +42,6 @@ async function getTrendingTvDay() {
   const series = data.results;
 
   const dayTvNode = document.createDocumentFragment();
-
   createCardWithDetails(series, dayTvNode, trendingDayTvContainer, typeTv);
 }
 
@@ -56,11 +50,7 @@ async function getTrendingTvWeek() {
   const { data } = await api('trending/tv/week');
   const series = data.results;
 
-  console.log('series');
-  console.log(series);
-
   const weekTvNode = document.createDocumentFragment();
-
   createCardWithDetails(series, weekTvNode, trendingWeekTvContainer, typeTv);
 }
 // END TRENDING GET
@@ -71,11 +61,7 @@ async function getCategories() {
   const { data } = await api('genre/movie/list');
   const categories = data.genres;
 
-  console.log('categories');
-  console.log(categories);
-
   const categoriesNode = document.createDocumentFragment();
-
   createCategoryCard(categories, categoriesNode, categoriesContainer);
 }
 // END CATEGORY GET
@@ -98,11 +84,7 @@ async function getByCategory(id, name, type) {
 
   const info = data.results;
 
-  console.log('by categories');
-  console.log({info});
-
   const byCategoryNode = document.createDocumentFragment();
-
   createCard(info, byCategoryNode, byCategoryContainer, type);
 }
 // END BY CATEGORY GET
@@ -120,11 +102,7 @@ async function getBySearch(query, type) {
 
   const info = data.results;
 
-  console.log('by search');
-  console.log({info});
-
   const bySearchNode = document.createDocumentFragment();
-
   createCard(info, bySearchNode, bySearchContainer, type);
 }
 // END BY SEARCH GET
@@ -133,14 +111,21 @@ async function getBySearch(query, type) {
 async function getById(id, type) {
 
   const { data } = await api(`${type}/${id}`);
-
-  console.log('by id');
   console.log({data});
-
   const byIdNode = document.createDocumentFragment();
-
-  createOneCard(data, byIdNode, detailsCardSection);
+  createOneCard(data, byIdNode, byIdSection, type);
 }
 // END BY ID GET
 
-export { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory, getBySearch, getById };
+// GET RECOMENDATIONS BY ID
+async function getRecomendationsById(type, id) {
+
+  const { data } = await api(`${type}/${id}/similar`);
+  const info = data.results;
+
+  const byRelatedNode = document.createDocumentFragment();
+  createCard(info, byRelatedNode, RecomendationsByIdContainer, type);
+}
+// END GET RECOMENDATIONS BY ID
+
+export { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory, getBySearch, getById, getRecomendationsById };
