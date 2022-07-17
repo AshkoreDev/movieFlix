@@ -1,3 +1,5 @@
+import { lazyLoader } from './utils.js';
+
 const API_IMG = 'https://image.tmdb.org/t/p/w'; //154
 const STAR_IMG = 'https://img.icons8.com/fluency/344/star.png';
 
@@ -11,8 +13,6 @@ function createCard(data, node, container, type) {
 		const cardImg = document.createElement('img');
 		const cardTitle = document.createElement('h4');
 
-		cardImg.setAttribute('src', `${API_IMG}154${item.poster_path}`);
-
 		if(item.title) {
 
       cardImg.setAttribute('alt', `${item.title} Poster`);
@@ -24,7 +24,17 @@ function createCard(data, node, container, type) {
       cardTitle.textContent = item.name;
     }
 
+    if(item.poster_path) {
+
+    	cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`);
+    	cardImg.setAttribute('width', '75');
+    } else {
+
+    	cardImg.setAttribute('data-img', 'https://img.icons8.com/ios/200/no-camera--v1.png');
+    }
+
     cardContainer.addEventListener('click', () => location.hash = `#${type}=${item.id}`);
+    lazyLoader.observe(cardImg);
 
 		cardContainer.className = 'cardContainer';
 		cardImg.className = 'cardContainer--img';
@@ -52,7 +62,8 @@ function createCardWithDetails(data, node, container, type) {
 		const cardRanking = document.createElement('p');
 		const cardDate = document.createElement('p');
 
-		cardImg.setAttribute('src', `${API_IMG}154${item.poster_path}`);
+		cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`);
+
 		cardRankingIcon.setAttribute('src', STAR_IMG);
 		cardRankingIcon.setAttribute('alt', 'Valoración');
 		cardRanking.textContent = item.vote_average;
@@ -71,6 +82,7 @@ function createCardWithDetails(data, node, container, type) {
     }
 
     cardContainer.addEventListener('click', () => location.hash = `#${type}=${item.id}`);
+    lazyLoader.observe(cardImg);
 
 		cardContainer.className = 'cardContainer';
 		cardImg.className = 'cardContainer--img';
@@ -123,7 +135,7 @@ function createOneCard(data, node, container, type) {
 	cardInfoCategoriesContainer.className = 'oneCardContainer__info__categories';
 	cardDescriptionContainer.className = 'oneContainer__description';
 
-	cardImg.setAttribute('src', `${API_IMG}342${data.poster_path}`);
+	cardImg.setAttribute('data-img', `${API_IMG}342${data.poster_path}`);
 	cardInfoDetailsRankingIcon.setAttribute('src', STAR_IMG);
 	cardInfoDetailsRankingIcon.setAttribute('alt', 'Valoración');
 	cardInfoDetailsRankingValue.textContent = data.vote_average;
@@ -145,6 +157,7 @@ function createOneCard(data, node, container, type) {
   }
 
   createCategoryCard(data.genres, cardCategoryNode, cardInfoCategoriesContainer);
+  lazyLoader.observe(cardImg);
 
   cardInfoDetailsRankingContainer.append(cardInfoDetailsRankingIcon);
 	cardInfoDetailsRankingContainer.append(cardInfoDetailsRankingValue);

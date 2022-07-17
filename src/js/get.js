@@ -3,7 +3,7 @@ import { API_KEY } from './key.js';
 import { createCard, createCardWithDetails, createOneCard, createCategoryCard } from './cards.js';
 
 
-// AXIOS
+// AXIOS CONFIG
 const api = axios.create({
   baseURL: 'https://api.themoviedb.org/3/',
   headers: {
@@ -16,7 +16,6 @@ const api = axios.create({
 
 const typeMovie = 'movie';
 const typeTv = 'tv';
-
 
 // TRENDING GET
 async function getTrendingMoviesDay() {
