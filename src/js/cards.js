@@ -27,11 +27,14 @@ function createCard(data, node, container, type) {
     if(item.poster_path) {
 
     	cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`);
-    	cardImg.setAttribute('width', '75');
+
     } else {
 
     	cardImg.setAttribute('data-img', 'https://img.icons8.com/ios/200/no-camera--v1.png');
     }
+
+    cardImg.setAttribute('width', '140');
+		cardImg.setAttribute('height', '200');
 
     cardContainer.addEventListener('click', () => location.hash = `#${type}=${item.id}`);
     lazyLoader.observe(cardImg);
@@ -63,9 +66,13 @@ function createCardWithDetails(data, node, container, type) {
 		const cardDate = document.createElement('p');
 
 		cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`);
+		cardImg.setAttribute('width', '140');
+		cardImg.setAttribute('height', '200');
 
 		cardRankingIcon.setAttribute('src', STAR_IMG);
 		cardRankingIcon.setAttribute('alt', 'Valoración');
+		cardRankingIcon.setAttribute('width', '20');
+		cardRankingIcon.setAttribute('height', '20');
 		cardRanking.textContent = item.vote_average;
 
 		if(item.title) {

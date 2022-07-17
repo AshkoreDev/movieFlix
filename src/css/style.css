@@ -46,8 +46,8 @@ main {
 }
 
 .menuWeb--icon {
-	width: 25px;
-	height: 25px;
+	width: 30px;
+	height: 30px;
 	margin-right: 10px;
 }
 
@@ -102,7 +102,7 @@ h1 {
 	width: fit-content;
 	max-width: 100%;
 	margin: 20px auto;
-	padding: 10px 5px;
+	padding: 10px 0;
 	display: flex;
 	align-items: center;
 	overflow: hidden;
@@ -243,14 +243,6 @@ form {
 	background-color: lightgrey;
 }
 
-.cardContainer--img::before {
-	content: "Imagen no disponible";
-	font-size: 14px;
-	background-color: green;
-	margin: 0 auto;
-	bottom: 0;
-}
-
 .cardContainer--title {
 	height: 35px;
 	margin: 10px 0;
@@ -283,6 +275,7 @@ form {
 	margin: 0 auto;
 	padding: 10px;
 	display: flex;
+	align-items: center;
 	flex-wrap: wrap;
 	border-radius: 8px;
 	color: var(--white);
@@ -395,9 +388,9 @@ footer {
   	padding: 10px 20px;
   }
 
-  .section__containerVertical {
+  /*.section__containerVertical {
 		justify-content: space-around;
-	}
+	}*/
 
   .sectionSearch {
   	justify-content: flex-end;
@@ -420,7 +413,8 @@ footer {
   }
 
   .cardContainer--img {
-		height: 240px;
+		min-height: 240px;
+		max-height: 240px;
 	}
 
   .oneCardContainer__info {
@@ -439,6 +433,10 @@ footer {
 
   .menuWeb {
   	padding: 15px 130px 15px 50px;
+  }
+
+  .section__containerVertical {
+  	justify-content: center;
   }
 
   .oneCardContainer {
@@ -468,10 +466,21 @@ footer {
 
 	.sectionSearch--button:hover {
 		cursor: pointer;
+		opacity: 0.6;
 	}
 
 	.arrow__container:hover {
 		cursor: pointer;
+	}
+
+	.cardContainer--img:hover {
+		cursor: pointer;
+		opacity: 0.6;
+	}
+
+	.sectionCategory__card:hover {
+		cursor: pointer;
+		opacity: 0.6;
 	}
 
 	.footer__socialMedia--icon:hover {

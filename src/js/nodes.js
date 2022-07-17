@@ -1,9 +1,13 @@
 const nodes = (id) => document.querySelector(id);
 
-// MENU
+// MOBILE MENU
 const home = nodes('#home');
 const search = nodes('#search');
 const categories = nodes('#categories');
+
+// WEB MENU
+const menuWebHome = nodes('#menuWebHome');
+const menuWebCategories = nodes('#menuWebCategories');
 
 // SECTIONS
 const trendingSection = nodes('#trendingSection');
