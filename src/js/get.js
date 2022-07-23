@@ -2,6 +2,8 @@ import './nodes.js';
 import { API_KEY } from './key.js';
 import { createCard, createCardWithDetails, createOneCard, createCategoryCard } from './cards.js';
 
+let page = 1;
+let maxPage;
 
 // AXIOS CONFIG
 const api = axios.create({
@@ -83,9 +85,34 @@ async function getByCategory(id, name, type) {
   });
 
   const info = data.results;
+  maxPage = data.total_pages;
 
   const byCategoryNode = document.createDocumentFragment();
   createCard(info, byCategoryNode, byCategoryContainer, type);
+}
+
+async function getPaginatedByCategory(id, type) {
+
+  const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+  const scrollIsBottom = (scrollTop + clientHeight) >= (scrollHeight - 15);
+
+  const pageIsNotMax = page < maxPage;
+
+  if (scrollIsBottom && pageIsNotMax) {
+
+    page++;
+    const { data } = await api(`discover/${type}`, {
+      params: {
+        with_genres: id,
+        page
+      }
+    });
+
+    const info = data.results;
+
+    const paginatedByCategoryNode = document.createDocumentFragment();
+    createCard(info, paginatedByCategoryNode, byCategoryContainer, type);
+  } 
 }
 // END BY CATEGORY GET
 
@@ -111,7 +138,7 @@ async function getBySearch(query, type) {
 async function getById(id, type) {
 
   const { data } = await api(`${type}/${id}`);
-  console.log({data});
+  
   const byIdNode = document.createDocumentFragment();
   createOneCard(data, byIdNode, byIdSection, type);
 }
@@ -128,4 +155,4 @@ async function getRecomendationsById(type, id) {
 }
 // END GET RECOMENDATIONS BY ID
 
-export { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory, getBySearch, getById, getRecomendationsById };
+export { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory, getBySearch, getById, getRecomendationsById, getPaginatedByCategory };

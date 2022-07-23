@@ -1,4 +1,7 @@
-import { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory, getBySearch, getById } from './js/get.js';
+
+let scrollingFunction;
+
+import { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory, getBySearch, getById, getPaginatedByCategory } from './js/get.js';
 import './js/nodes.js';
 
 window.addEventListener('DOMContentLoaded', navigator, false);
@@ -23,6 +26,9 @@ function navigator() {
   homePage();
 
   window.scrollTo(0, 0);
+  if (scrollingFunction) {
+    window.addEventListener('scroll', scrollingFunction, { passive: false });
+  }
 }
 
 function searchPage() {
@@ -86,6 +92,11 @@ function byCategoryPage() {
   
   getByCategory(id, name, 'movie');
   getByCategory(id, name, 'tv');
+
+  scrollingFunction = () => {
+    getPaginatedByCategory(id, 'movie');
+    getPaginatedByCategory(id, 'tv');
+  }
 }
 
 function movieByIdPage() {
