@@ -128,9 +128,34 @@ async function getBySearch(query, type) {
   });
 
   const info = data.results;
+  maxPage = data.total_pages;
 
   const bySearchNode = document.createDocumentFragment();
   createCard(info, bySearchNode, bySearchContainer, type);
+}
+
+async function getPaginatedBySearch(query, type) {
+
+  const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+  const scrollIsBottom = (scrollTop + clientHeight) >= (scrollHeight - 15);
+
+  const pageIsNotMax = page < maxPage;
+
+  if (scrollIsBottom && pageIsNotMax) {
+    
+    page++;
+    const { data } = await api(`search/${type}`, {
+      params: {
+        query: query, 
+        page
+      }
+    });
+
+    const info = data.results;
+
+    const paginatedBySearchNode = document.createDocumentFragment();
+    createCard(info, paginatedBySearchNode, bySearchContainer, type);
+  } 
 }
 // END BY SEARCH GET
 
@@ -151,8 +176,8 @@ async function getRecomendationsById(type, id) {
   const info = data.results;
 
   const byRelatedNode = document.createDocumentFragment();
-  createCard(info, byRelatedNode, RecomendationsByIdContainer, type);
+  createCard(info, byRelatedNode, recomendationsByIdContainer, type);
 }
 // END GET RECOMENDATIONS BY ID
 
-export { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory, getBySearch, getById, getRecomendationsById, getPaginatedByCategory };
+export { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory, getBySearch, getById, getRecomendationsById, getPaginatedByCategory, getPaginatedBySearch };

@@ -66,7 +66,16 @@ function createCardWithDetails(data, node, container, type) {
 		const cardRanking = document.createElement('p');
 		const cardDate = document.createElement('p');
 
-		cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`);
+		// cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`);
+		if(item.poster_path) {
+
+    	cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`);
+
+    } else {
+
+    	cardImg.setAttribute('data-img', 'https://img.icons8.com/ios/200/no-camera--v1.png');
+    }
+    
 		cardImg.setAttribute('width', '140');
 		cardImg.setAttribute('height', '200');
 

@@ -38,4 +38,4 @@ const bySearchContainer = nodes('#bySearchContainer');
 const bySearchTitle = nodes('#bySearchTitle');
 
 // BY ID
-const RecomendationsByIdContainer = nodes('#RecomendationsByIdContainer');
+const recomendationsByIdContainer = nodes('#recomendationsByIdContainer');

@@ -1,7 +1,6 @@
-
 let scrollingFunction;
 
-import { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory, getBySearch, getById, getPaginatedByCategory } from './js/get.js';
+import { getTrendingMoviesDay, getTrendingMoviesWeek, getTrendingTvDay, getTrendingTvWeek, getCategories, getByCategory, getBySearch, getById, getPaginatedByCategory, getPaginatedBySearch } from './js/get.js';
 import './js/nodes.js';
 
 window.addEventListener('DOMContentLoaded', navigator, false);
@@ -26,13 +25,14 @@ function navigator() {
   homePage();
 
   window.scrollTo(0, 0);
+
   if (scrollingFunction) {
+
     window.addEventListener('scroll', scrollingFunction, { passive: false });
   }
 }
 
 function searchPage() {
-  console.log('searchPage');
 
   trendingSection.classList.add('inactive');
   categorySection.classList.add('inactive');
@@ -43,7 +43,6 @@ function searchPage() {
 }
 
 function bySearchPage() {
-  console.log('bySearchPage');
 
   trendingSection.classList.add('inactive');
   categorySection.classList.add('inactive');
@@ -56,12 +55,18 @@ function bySearchPage() {
   bySearchTitle.innerHTML = "";
 
   const [url, query] = location.hash.split('=');
+
   getBySearch(query, 'movie');
   getBySearch(query, 'tv');
+
+  scrollingFunction = () => {
+
+    getPaginatedBySearch(query, 'movie');
+    getPaginatedBySearch(query, 'tv');
+  }
 }
 
 function categoryPage() {
-  console.log('categoryPage');
 
   trendingSection.classList.add('inactive');
   categorySection.classList.remove('inactive');
@@ -75,7 +80,6 @@ function categoryPage() {
 }
 
 function byCategoryPage() {
-  console.log('byCategoryPage');
 
   trendingSection.classList.add('inactive');
   categorySection.classList.add('inactive');
@@ -94,13 +98,13 @@ function byCategoryPage() {
   getByCategory(id, name, 'tv');
 
   scrollingFunction = () => {
+
     getPaginatedByCategory(id, 'movie');
     getPaginatedByCategory(id, 'tv');
   }
 }
 
 function movieByIdPage() {
-  console.log('movieByIdPage');
 
   trendingSection.classList.add('inactive');
   categorySection.classList.add('inactive');
@@ -110,14 +114,14 @@ function movieByIdPage() {
   recomendationsByIdSection.classList.remove('inactive');
 
   byIdSection.innerHTML = "";
-  RecomendationsByIdContainer.innerHTML = "";
+  recomendationsByIdContainer.innerHTML = "";
 
   const [url, id] = location.hash.split('=');
+
   getById(id, 'movie');
 }
 
 function tvByIdPage() {
-  console.log('tvByIdPage');
 
   trendingSection.classList.add('inactive');
   categorySection.classList.add('inactive');
@@ -127,14 +131,14 @@ function tvByIdPage() {
   recomendationsByIdSection.classList.remove('inactive');
 
   byIdSection.innerHTML = "";
-  RecomendationsByIdContainer.innerHTML = "";
+  recomendationsByIdContainer.innerHTML = "";
 
   const [url, id] = location.hash.split('=');
+
   getById(id, 'tv');
 }
 
 function homePage() {
-  console.log('Home');
 
   trendingSection.classList.remove('inactive');
   categorySection.classList.add('inactive');
