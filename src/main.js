@@ -73,6 +73,7 @@ function categoryPage() {
   bySearchSection.classList.add('inactive');
   byCategorySection.classList.add('inactive');
   byIdSection.classList.add('inactive');
+  recomendationsByIdSection.classList.add('inactive');
 
   categoriesContainer.innerHTML = "";
 

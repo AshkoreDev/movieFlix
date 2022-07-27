@@ -65,8 +65,7 @@ function createCardWithDetails(data, node, container, type) {
 		const cardRankingIcon = document.createElement('img');
 		const cardRanking = document.createElement('p');
 		const cardDate = document.createElement('p');
-
-		// cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`);
+		
 		if(item.poster_path) {
 
     	cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`);
