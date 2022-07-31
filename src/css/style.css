@@ -391,6 +391,7 @@ footer {
 		padding-bottom: 5px;
 		border-bottom: 1px solid transparent;
 	}
+	
 	.menuWeb__menu--item a {
 		color: var(--white);
 	}
@@ -398,10 +399,6 @@ footer {
   .section__container {
   	padding: 10px 20px;
   }
-
-  /*.section__containerVertical {
-		justify-content: space-around;
-	}*/
 
   .sectionSearch {
   	justify-content: flex-end;
