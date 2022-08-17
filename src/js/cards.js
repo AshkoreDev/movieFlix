@@ -27,11 +27,11 @@ function createCard(data, node, container, type) {
 
     if(item.poster_path) {
 
-    	cardImg.setAttribute('data-img', `${API_IMG}154${item.poster_path}`);
+    	cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`);
 
     } else {
 
-    	cardImg.setAttribute('data-img', 'https://img.icons8.com/ios/154/no-camera--v1.png');
+    	cardImg.setAttribute('data-img', 'https://img.icons8.com/ios/200/no-camera--v1.png');
     }
 
     cardImg.setAttribute('width', '154');
@@ -68,11 +68,11 @@ function createCardWithDetails(data, node, container, type) {
 		
 		if(item.poster_path) {
 
-    	cardImg.setAttribute('data-img', `${API_IMG}154${item.poster_path}`);
+    	cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`);
 
     } else {
 
-    	cardImg.setAttribute('data-img', 'https://img.icons8.com/ios/154/no-camera--v1.png');
+    	cardImg.setAttribute('data-img', 'https://img.icons8.com/ios/200/no-camera--v1.png');
     }
     
 		cardImg.setAttribute('width', '154');
