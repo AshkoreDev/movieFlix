@@ -12,7 +12,7 @@ function createCard(data, node, container, type) {
 
 		const cardContainer = document.createElement('article');
 		const cardImg = document.createElement('img');
-		const cardTitle = document.createElement('h4');
+		const cardTitle = document.createElement('p');
 
 		if(item.title) {
 
@@ -59,7 +59,7 @@ function createCardWithDetails(data, node, container, type) {
 
 		const cardContainer = document.createElement('article');
 		const cardImg = document.createElement('img');
-		const cardTitle = document.createElement('h4');
+		const cardTitle = document.createElement('p');
 		const cardDetails = document.createElement('div');
 		const cardRankingContainer = document.createElement('div');
 		const cardRankingIcon = document.createElement('img');
