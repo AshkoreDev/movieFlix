@@ -44,9 +44,7 @@ function createCard(data, node, container, type) {
 		cardImg.className = 'cardContainer--img';
 		cardTitle.className = 'cardContainer--title';
 
-		cardContainer.append(cardImg);
-		cardContainer.append(cardTitle);
-
+		cardContainer.append(cardImg, cardTitle);
 		node.append(cardContainer);
 	});
 
@@ -107,15 +105,9 @@ function createCardWithDetails(data, node, container, type) {
 		cardRankingContainer.className = 'cardContainer__details--ranking';
 		cardDate.className = 'cardContainer__details--date';
 
-		cardRankingContainer.append(cardRankingIcon);
-		cardRankingContainer.append(cardRanking);
-
-		cardDetails.append(cardRankingContainer);
-		cardDetails.append(cardDate);
-
-		cardContainer.append(cardImg);
-		cardContainer.append(cardTitle);
-		cardContainer.append(cardDetails);
+		cardRankingContainer.append(cardRankingIcon, cardRanking);
+		cardDetails.append(cardRankingContainer, cardDate);
+		cardContainer.append(cardImg, cardTitle, cardDetails);
 
     node.append(cardContainer);
 	});
@@ -176,21 +168,13 @@ function createOneCard(data, node, container, type) {
   createCategoryCard(data.genres, cardCategoryNode, cardInfoCategoriesContainer);
   getRecomendationsById(type, data.id);
 
-  cardInfoDetailsRankingContainer.append(cardInfoDetailsRankingIcon);
-	cardInfoDetailsRankingContainer.append(cardInfoDetailsRankingValue);
-	cardInfoDetailsContainer.append(cardInfoDetailsRankingContainer);
-	cardInfoDetailsContainer.append(cardInfoDetailsDate);
+  cardInfoDetailsRankingContainer.append(cardInfoDetailsRankingIcon, cardInfoDetailsRankingValue);
+	cardInfoDetailsContainer.append(cardInfoDetailsRankingContainer, cardInfoDetailsDate);
 	cardDescriptionContainer.append(cardDescription);
 
 	cardImgContainer.append(cardImg);
-	cardInfoContainer.append(cardInfoTitle);
-	cardInfoContainer.append(cardInfoTime);
-	cardInfoContainer.append(cardInfoDetailsContainer);
-	cardInfoContainer.append(cardInfoCategoriesContainer);
-
-	cardContainer.append(cardImgContainer);
-	cardContainer.append(cardInfoContainer);
-	cardContainer.append(cardDescriptionContainer);
+	cardInfoContainer.append(cardInfoTitle, cardInfoTime, cardInfoDetailsContainer, cardInfoCategoriesContainer);
+	cardContainer.append(cardImgContainer, cardInfoContainer, cardDescriptionContainer);
 
 	node.append(cardContainer);
 	container.append(node);
