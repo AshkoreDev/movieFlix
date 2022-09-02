@@ -35,7 +35,7 @@ async function getTrendingMoviesWeek() {
   const movies = data.results;
 
   const weekMoviesNode = document.createDocumentFragment();
-  createCardWithDetails(movies, weekMoviesNode, trendingWeekMoviesContainer,typeMovie);
+  createCardWithDetails(movies, weekMoviesNode, trendingWeekMoviesContainer, typeMovie);
 }
 
 async function getTrendingTvDay() {
@@ -71,12 +71,12 @@ async function getCategories() {
 // BY CATEGORY GET
 async function getByCategory(id, name, type) {
 
-  const [nameOne, nameTwo, nameThree] = name.split('%20');    
+  const [nameOne, nameTwo, nameThree] = name.split('%20');
 
-  nameTwo ? byCategoryTitle.innerHTML = `${nameOne} ${nameTwo}` :  byCategoryTitle.innerHTML = `${nameOne}`;  
+  nameTwo ? byCategoryTitle.innerHTML = `${nameOne} ${nameTwo}` : byCategoryTitle.innerHTML = `${nameOne}`;
   nameThree ? byCategoryTitle.innerHTML = `${nameOne} ${nameTwo} ${nameThree}` :
 
-  byCategoryContainer.classList.remove("inactive");
+    byCategoryContainer.classList.remove("inactive");
 
   const { data } = await api(`discover/${type}`, {
     params: {
@@ -112,7 +112,7 @@ async function getPaginatedByCategory(id, type) {
 
     const paginatedByCategoryNode = document.createDocumentFragment();
     createCard(info, paginatedByCategoryNode, byCategoryContainer, type);
-  } 
+  }
 }
 // END BY CATEGORY GET
 
@@ -142,11 +142,11 @@ async function getPaginatedBySearch(query, type) {
   const pageIsNotMax = page < maxPage;
 
   if (scrollIsBottom && pageIsNotMax) {
-    
+
     page++;
     const { data } = await api(`search/${type}`, {
       params: {
-        query: query, 
+        query: query,
         page
       }
     });
@@ -155,7 +155,7 @@ async function getPaginatedBySearch(query, type) {
 
     const paginatedBySearchNode = document.createDocumentFragment();
     createCard(info, paginatedBySearchNode, bySearchContainer, type);
-  } 
+  }
 }
 // END BY SEARCH GET
 
@@ -163,7 +163,7 @@ async function getPaginatedBySearch(query, type) {
 async function getById(id, type) {
 
   const { data } = await api(`${type}/${id}`);
-  
+
   const byIdNode = document.createDocumentFragment();
   createOneCard(data, byIdNode, byIdSection, type);
 }

@@ -94,7 +94,7 @@ function byCategoryPage() {
 
   const [url, info] = location.hash.split('=');
   const [id, name] = info.split('--');
-  
+
   getByCategory(id, name, 'movie');
   getByCategory(id, name, 'tv');
 

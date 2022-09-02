@@ -14,31 +14,26 @@ function createCard(data, node, container, type) {
 		const cardImg = document.createElement('img');
 		const cardTitle = document.createElement('p');
 
-		if(item.title) {
+		if (item.title) {
 
-      cardImg.setAttribute('alt', `${item.title} Poster`);
-      cardTitle.textContent = item.title;
+			cardImg.setAttribute('alt', `${item.title} Poster`);
+			cardTitle.textContent = item.title;
 
-    } else if(item.name){
+		} else if (item.name) {
 
-      cardImg.setAttribute('alt', `${item.name} Poster`);
-      cardTitle.textContent = item.name;
-    }
+			cardImg.setAttribute('alt', `${item.name} Poster`);
+			cardTitle.textContent = item.name;
+		}
 
-    if(item.poster_path) {
+		item.poster_path
+			? cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`)
+			: cardImg.setAttribute('data-img', 'https://img.icons8.com/ios/200/no-camera--v1.png');
 
-    	cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`);
-
-    } else {
-
-    	cardImg.setAttribute('data-img', 'https://img.icons8.com/ios/200/no-camera--v1.png');
-    }
-
-    cardImg.setAttribute('width', '154');
+		cardImg.setAttribute('width', '154');
 		cardImg.setAttribute('height', '231');
 
-    cardContainer.addEventListener('click', () => location.hash = `#${type}=${item.id}`);
-    lazyLoader.observe(cardImg);
+		cardContainer.addEventListener('click', () => location.hash = `#${type}=${item.id}`);
+		lazyLoader.observe(cardImg);
 
 		cardContainer.className = 'cardContainer';
 		cardImg.className = 'cardContainer--img';
@@ -63,40 +58,43 @@ function createCardWithDetails(data, node, container, type) {
 		const cardRankingIcon = document.createElement('img');
 		const cardRanking = document.createElement('p');
 		const cardDate = document.createElement('p');
-		
-		if(item.poster_path) {
 
-    	cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`);
+		// if (item.poster_path) {
 
-    } else {
+		// 	cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`);
 
-    	cardImg.setAttribute('data-img', 'https://img.icons8.com/ios/200/no-camera--v1.png');
-    }
-    
+		// } else {
+
+		// 	cardImg.setAttribute('data-img', 'https://img.icons8.com/ios/200/no-camera--v1.png');
+		// }
+		item.poster_path
+			? cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`)
+			: cardImg.setAttribute('data-img', 'https://img.icons8.com/ios/200/no-camera--v1.png');
+
 		cardImg.setAttribute('width', '154');
 		cardImg.setAttribute('height', '231');
 
 		cardRankingIcon.setAttribute('src', STAR_IMG);
-		cardRankingIcon.setAttribute('alt', 'Valoración');
+		cardRankingIcon.setAttribute('alt', 'Ranking');
 		cardRankingIcon.setAttribute('width', '20');
 		cardRankingIcon.setAttribute('height', '20');
 		cardRanking.textContent = item.vote_average;
 
-		if(item.title) {
+		if (item.title) {
 
-      cardImg.setAttribute('alt', `${item.title} Poster`);
-      cardTitle.textContent = item.title;
-      cardDate.textContent = item.release_date;
+			cardImg.setAttribute('alt', `${item.title} Poster`);
+			cardTitle.textContent = item.title;
+			cardDate.textContent = item.release_date;
 
-    } else if(item.name) {
+		} else if (item.name) {
 
-      cardImg.setAttribute('alt', `${item.name} Poster`);
-      cardTitle.textContent = item.name;
-      cardDate.textContent = item.first_air_date;
-    }
+			cardImg.setAttribute('alt', `${item.name} Poster`);
+			cardTitle.textContent = item.name;
+			cardDate.textContent = item.first_air_date;
+		}
 
-    cardContainer.addEventListener('click', () => location.hash = `#${type}=${item.id}`);
-    lazyLoader.observe(cardImg);
+		cardContainer.addEventListener('click', () => location.hash = `#${type}=${item.id}`);
+		lazyLoader.observe(cardImg);
 
 		cardContainer.className = 'cardContainer';
 		cardImg.className = 'cardContainer--img';
@@ -109,7 +107,7 @@ function createCardWithDetails(data, node, container, type) {
 		cardDetails.append(cardRankingContainer, cardDate);
 		cardContainer.append(cardImg, cardTitle, cardDetails);
 
-    node.append(cardContainer);
+		node.append(cardContainer);
 	});
 
 	container.appendChild(node);
@@ -145,30 +143,30 @@ function createOneCard(data, node, container, type) {
 
 	cardImg.setAttribute('data-img', `${API_IMG}342${data.poster_path}`);
 	cardInfoDetailsRankingIcon.setAttribute('src', STAR_IMG);
-	cardInfoDetailsRankingIcon.setAttribute('alt', 'Valoración');
+	cardInfoDetailsRankingIcon.setAttribute('alt', 'Ranking');
 	cardInfoDetailsRankingValue.textContent = data.vote_average;
 	cardDescription.textContent = data.overview;
 
-	if(data.title) {
+	if (data.title) {
 
-    cardImg.setAttribute('alt', `${data.title} Poster`);
-    cardInfoTitle.textContent = data.title;
-    cardInfoDetailsDate.textContent = data.release_date;
-    cardInfoTime.textContent = `${data.runtime} minutos`;
+		cardImg.setAttribute('alt', `${data.title} Poster`);
+		cardInfoTitle.textContent = data.title;
+		cardInfoDetailsDate.textContent = data.release_date;
+		cardInfoTime.textContent = `${data.runtime} minutes`;
 
-  } else if(data.name) {
+	} else if (data.name) {
 
-    cardImg.setAttribute('alt', `${data.name} Poster`);
-    cardInfoTitle.textContent = data.name;
-    cardInfoDetailsDate.textContent = data.first_air_date;
-    cardInfoTime.textContent = `${data.number_of_seasons} temporadas || ${data.number_of_episodes} episodios`;
-  }
+		cardImg.setAttribute('alt', `${data.name} Poster`);
+		cardInfoTitle.textContent = data.name;
+		cardInfoDetailsDate.textContent = data.first_air_date;
+		cardInfoTime.textContent = `${data.number_of_seasons} seasons || ${data.number_of_episodes} episodes`;
+	}
 
-  lazyLoader.observe(cardImg);
-  createCategoryCard(data.genres, cardCategoryNode, cardInfoCategoriesContainer);
-  getRecomendationsById(type, data.id);
+	lazyLoader.observe(cardImg);
+	createCategoryCard(data.genres, cardCategoryNode, cardInfoCategoriesContainer);
+	getRecomendationsById(type, data.id);
 
-  cardInfoDetailsRankingContainer.append(cardInfoDetailsRankingIcon, cardInfoDetailsRankingValue);
+	cardInfoDetailsRankingContainer.append(cardInfoDetailsRankingIcon, cardInfoDetailsRankingValue);
 	cardInfoDetailsContainer.append(cardInfoDetailsRankingContainer, cardInfoDetailsDate);
 	cardDescriptionContainer.append(cardDescription);
 
@@ -187,15 +185,15 @@ function createCategoryCard(data, node, container) {
 		const categoryCard = document.createElement('article');
 		const categoryTitle = document.createElement('h5');
 
-    categoryTitle.textContent = item.name;
-    categoryTitle.setAttribute('id', `id${item.id}`);
-    categoryTitle.addEventListener('click', () => location.hash = `#bycategory=${item.id}--${item.name}`);
+		categoryTitle.textContent = item.name;
+		categoryTitle.setAttribute('id', `id${item.id}`);
+		categoryTitle.addEventListener('click', () => location.hash = `#bycategory=${item.id}--${item.name}`);
 
 		categoryCard.className = 'sectionCategory__card';
 		categoryTitle.className = 'sectionCategory__card--title';
 
-    categoryCard.append(categoryTitle);
-    node.append(categoryCard);
+		categoryCard.append(categoryTitle);
+		node.append(categoryCard);
 	});
 
 	container.appendChild(node);
