@@ -1,5 +1,5 @@
 # movieFlix
-A simple and attractive website about movies and tv shows with trending and new released. The Movie Database practice.
+Trending web application in Movies and Tv shows. The Movie Database API practice.
 
 ## Deploy page
 https://ashkoredev.github.io/movieFlix/
