@@ -81,10 +81,8 @@ h1 {
 
 /* SECTIONS */
 .section__container {
-	/*width: 100%;*/
 	margin: 0 auto;
 	padding: 10px;
-	/*background-color: white;*/
 }
 
 .section__container--title {

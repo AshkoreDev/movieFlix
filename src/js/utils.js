@@ -1,5 +1,5 @@
 // INTERSECTION OBSERVER
-const lazyLoader = new IntersectionObserver((entries) => {
+export const lazyLoader = new IntersectionObserver((entries) => {
 
   entries.forEach(entry => {
 
@@ -10,5 +10,3 @@ const lazyLoader = new IntersectionObserver((entries) => {
   	}
   });
 });
-
-export { lazyLoader };

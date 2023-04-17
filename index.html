@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Aracely Alba @AshkoreDev">
-	<meta name="description"
-		content="Proyecto para practicar consumo de API's. MovieFlix la mejor página para ver qué películas y shows de tv están en tendencia.">
-	<link rel="icon" type="image/png"
-		href="https://img.icons8.com/external-microdots-premium-microdot-graphic/344/external-movie-lifestyle-entertainment-vol3-microdots-premium-microdot-graphic.png">
+	<meta name="description" content="MovieFlix the best page to view the movies and TV shows that are trending. Project to practice consumption of APIs">
+	<meta name="keywords" content="HTML, CSS, JavaScript">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="https://img.icons8.com/external-microdots-premium-microdot-graphic/344/external-movie-lifestyle-entertainment-vol3-microdots-premium-microdot-graphic.png">
 	<title>MovieFlix</title>
-
 	<link rel="stylesheet" href="./src/css/style.css">
 </head>
-
 <body>
 
 	<header>
 		<nav class="menuWeb">
 			<div class="menuWeb__info">
-				<img src="https://img.icons8.com/ios/FFFFFF/double-left.png" alt="Arrow icon" width="25" height="25"
-					class="backArrow--icon" id="backArrow" loading="lazy">
-				<img
-					src="https://img.icons8.com/external-microdots-premium-microdot-graphic/344/external-movie-lifestyle-entertainment-vol3-microdots-premium-microdot-graphic.png"
-					alt="icon Película" width="30" height="30" class="menuWeb--icon" loading="lazy">
+				<img src="https://img.icons8.com/ios/FFFFFF/double-left.png" alt="Arrow icon" width="25" height="25" class="backArrow--icon" id="backArrow" loading="lazy">
+				<img src="https://img.icons8.com/external-microdots-premium-microdot-graphic/344/external-movie-lifestyle-entertainment-vol3-microdots-premium-microdot-graphic.png" alt="icon Película" width="30" height="30" class="menuWeb--icon" loading="lazy">
 				<h1>MovieFlix</h1>
 			</div>
 			<ul class="menuWeb__menu">
@@ -36,6 +29,7 @@
 			</ul>
 		</nav>
 	</header>
+
 	<main>
 		<!-- MENU MOBILE -->
 		<section class="menuMobile">
@@ -60,8 +54,7 @@
 				<label for="searchInput"></label>
 				<input type="text" class="sectionSearch--input" id="searchInput" placeholder="Search..." autocomplete="off">
 				<button class="sectionSearch--button">
-					<img src="https://img.icons8.com/FFFFFF/search" alt="Search icon" width="25" height="25" id="searchBtn"
-						loading="lazy">
+					<img src="https://img.icons8.com/FFFFFF/search" alt="Search icon" width="25" height="25" id="searchBtn" loading="lazy">
 				</button>
 			</form>
 		</section>
@@ -72,158 +65,22 @@
 
 			<h2 class="section__container--title">Daily Trending Movies</h2>
 			<section class="section__containerHorizontal">
-				<section class="section__containerHorizontal__carrousel" id="trendingDayMoviesContainer">
-					<!-- <article class="cardContainer">
-						<img class="cardContainer--img">
-						<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-						<div class="cardContainer__details">
-							<div class="cardContainer__details--ranking">
-								<img src="https://img.icons8.com/fluency/344/star.png" alt="" width="20" height="20">
-								<p>10.2</p>
-							</div>
-							<p class="cardContainer__details--date">12/01/2021</p>
-						</div>
-					</article>
-					<article class="cardContainer">
-						<img class="cardContainer--img">
-						<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-						<div class="cardContainer__details">
-							<div class="cardContainer__details--ranking">
-								<img src="https://img.icons8.com/fluency/344/star.png" alt="" width="20" height="20">
-								<p>10.2</p>
-							</div>
-							<p class="cardContainer__details--date">12/01/2021</p>
-						</div>
-					</article>
-					<article class="cardContainer">
-						<img class="cardContainer--img">
-						<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-						<div class="cardContainer__details">
-							<div class="cardContainer__details--ranking">
-								<img src="https://img.icons8.com/fluency/344/star.png" alt="" width="20" height="20">
-								<p>10.2</p>
-							</div>
-							<p class="cardContainer__details--date">12/01/2021</p>
-						</div>
-					</article> -->
-				</section>
+				<section class="section__containerHorizontal__carrousel" id="trendingDayMoviesContainer"></section>
 			</section>
 
 			<h2 class="section__container--title title">Weekly Trending Movies</h2>
 			<section class="section__containerHorizontal">
-				<section class="section__containerHorizontal__carrousel" id="trendingWeekMoviesContainer">
-					<!-- <article class="cardContainer">
-						<img class="cardContainer--img">
-						<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-						<div class="cardContainer__details">
-							<div class="cardContainer__details--ranking">
-								<img src="https://img.icons8.com/fluency/344/star.png" alt="" width="20" height="20">
-								<p>10.2</p>
-							</div>
-							<p class="cardContainer__details--date">12/01/2021</p>
-						</div>
-					</article>
-					<article class="cardContainer">
-						<img class="cardContainer--img">
-						<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-						<div class="cardContainer__details">
-							<div class="cardContainer__details--ranking">
-								<img src="https://img.icons8.com/fluency/344/star.png" alt="" width="20" height="20">
-								<p>10.2</p>
-							</div>
-							<p class="cardContainer__details--date">12/01/2021</p>
-						</div>
-					</article>
-					<article class="cardContainer">
-						<img class="cardContainer--img">
-						<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-						<div class="cardContainer__details">
-							<div class="cardContainer__details--ranking">
-								<img src="https://img.icons8.com/fluency/344/star.png" alt="" width="20" height="20">
-								<p>10.2</p>
-							</div>
-							<p class="cardContainer__details--date">12/01/2021</p>
-						</div>
-					</article> -->
-				</section>
+				<section class="section__containerHorizontal__carrousel" id="trendingWeekMoviesContainer"></section>
 			</section>
 
 			<h2 class="section__container--title title">Daily Trending Tv Shows</h2>
 			<section class="section__containerHorizontal">
-				<section class="section__containerHorizontal__carrousel" id="trendingDayTvContainer">
-					<!-- <article class="cardContainer">
-						<img class="cardContainer--img">
-						<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-						<div class="cardContainer__details">
-							<div class="cardContainer__details--ranking">
-								<img src="https://img.icons8.com/fluency/344/star.png" alt="" width="20" height="20">
-								<p>10.2</p>
-							</div>
-							<p class="cardContainer__details--date">12/01/2021</p>
-						</div>
-					</article>
-					<article class="cardContainer">
-						<img class="cardContainer--img">
-						<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-						<div class="cardContainer__details">
-							<div class="cardContainer__details--ranking">
-								<img src="https://img.icons8.com/fluency/344/star.png" alt="" width="20" height="20">
-								<p>10.2</p>
-							</div>
-							<p class="cardContainer__details--date">12/01/2021</p>
-						</div>
-					</article>
-					<article class="cardContainer">
-						<img class="cardContainer--img">
-						<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-						<div class="cardContainer__details">
-							<div class="cardContainer__details--ranking">
-								<img src="https://img.icons8.com/fluency/344/star.png" alt="" width="20" height="20">
-								<p>10.2</p>
-							</div>
-							<p class="cardContainer__details--date">12/01/2021</p>
-						</div>
-					</article> -->
-				</section>
+				<section class="section__containerHorizontal__carrousel" id="trendingDayTvContainer"></section>
 			</section>
 
 			<h2 class="section__container--title title">Weekly Trending Tv Shows</h2>
 			<section class="section__containerHorizontal">
-				<section class="section__containerHorizontal__carrousel" id="trendingWeekTvContainer">
-					<!-- <article class="cardContainer">
-						<img class="cardContainer--img">
-						<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-						<div class="cardContainer__details">
-							<div class="cardContainer__details--ranking">
-								<img src="https://img.icons8.com/fluency/344/star.png" alt="" width="20" height="20">
-								<p>10.2</p>
-							</div>
-							<p class="cardContainer__details--date">12/01/2021</p>
-						</div>
-					</article>
-					<article class="cardContainer">
-						<img class="cardContainer--img">
-						<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-						<div class="cardContainer__details">
-							<div class="cardContainer__details--ranking">
-								<img src="https://img.icons8.com/fluency/344/star.png" alt="" width="20" height="20">
-								<p>10.2</p>
-							</div>
-							<p class="cardContainer__details--date">12/01/2021</p>
-						</div>
-					</article>
-					<article class="cardContainer">
-						<img class="cardContainer--img">
-						<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-						<div class="cardContainer__details">
-							<div class="cardContainer__details--ranking">
-								<img src="https://img.icons8.com/fluency/344/star.png" alt="" width="20" height="20">
-								<p>10.2</p>
-							</div>
-							<p class="cardContainer__details--date">12/01/2021</p>
-						</div>
-					</article> -->
-				</section>
+				<section class="section__containerHorizontal__carrousel" id="trendingWeekTvContainer"></section>
 			</section>
 		</section>
 		<!-- END TENDRING SECTION -->
@@ -231,93 +88,27 @@
 		<!-- CATEGORIES SECTION -->
 		<section class="section__container" id="categorySection">
 			<h2 class="section__container--title">Categories</h2>
-			<section class="sectionCategory" id="categoriesContainer">
-				<!-- <article class="sectionCategory__card">
-					<h5 class="sectionCategory__card--title">titulo categoria</h5>
-				</article>
-				<article class="sectionCategory__card">
-					<h5 class="sectionCategory__card--title">titulo categoria</h5>
-				</article>
-				<article class="sectionCategory__card">
-					<h5 class="sectionCategory__card--title">titulo categoria</h5>
-				</article> -->
-			</section>
+			<section class="sectionCategory" id="categoriesContainer"></section>
 		</section>
 		<!-- END CATEGORIES SECTION -->
 
 		<!-- BY SEARCH SECTION -->
 		<section class="section__container" id="bySearchSection">
 			<h2 class="section__container--title" id="bySearchTitle"></h2>
-			<section class="section__containerVertical" id="bySearchContainer">
-				<!-- <article class="cardContainer">
-					<img class="cardContainer--img">
-					<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-				</article>
-				<article class="cardContainer">
-					<img class="cardContainer--img">
-					<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-				</article>
-				<article class="cardContainer">
-					<img class="cardContainer--img">
-					<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-				</article> -->
-			</section>
+			<section class="section__containerVertical" id="bySearchContainer"></section>
 		</section>
 		<!-- END BY SEARCH SECTION -->
 
 		<!-- BY CATEGORY SECTION -->
 		<section class="section__container" id="byCategorySection">
 			<h2 class="section__container--title" id="byCategoryTitle"></h2>
-			<section class="section__containerVertical" id="byCategoryContainer">
-				<!-- <article class="cardContainer">
-					<img class="cardContainer--img">
-					<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-				</article>
-				<article class="cardContainer">
-					<img class="cardContainer--img">
-					<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-				</article>
-				<article class="cardContainer">
-					<img class="cardContainer--img">
-					<h4 class="cardContainer--title">Titulo de la pelicula</h4>
-				</article> -->
-			</section>
+			<section class="section__containerVertical" id="byCategoryContainer"></section>
 		</section>
 		<!-- END BY CATEGORY SECTION -->
 
 		<!-- BY ID SECTION -->
-		<section class="section__container" id="byIdSection">
-			<!-- <article class="oneCardContainer">
-				<figure class="oneCardContainer__img">
-					<img src="" alt="">
-				</figure>
-				<section class="oneCardContainer__info">
-					<h3 class="oneCardContainer__info--title">Titulo de la pelicula</h3>
-					<p class="oneCardContainer__info--time">2 hrs</p>
-					<div class="cardContainer__details">
-						<div class="cardContainer__details--ranking">
-							<img src="https://img.icons8.com/fluency/344/star.png" alt="" width="20" height="20">
-							<p>10.2</p>
-						</div>
-						<p class="cardContainer__details--date">10/10/2021</p>
-					</div>
-					<div class="oneCardContainer__info__categories">
-						<article class="sectionCategory__card">
-							<h5 class="sectionCategory__card--title">titulo categoria</h5>
-						</article>
-						<article class="sectionCategory__card">
-							<h5 class="sectionCategory__card--title">titulo categoria</h5>
-						</article>
-						<article class="sectionCategory__card">
-							<h5 class="sectionCategory__card--title">titulo categoria</h5>
-						</article>
-					</div>
-				</section>
-				<div class="oneContainer__description">
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem, odio quod ad quibusdam excepturi consequatur, accusamus! Laborum molestiae sunt voluptatem. Rem, odio quod ad quibusdam excepturi consequatur, accusamus! Laborum molestiae sunt voluptatem</p>
-				</div>
-			</article> -->
-		</section>
+		<section class="section__container" id="byIdSection"></section>
+
 		<section class="section__container" id="recomendationsByIdSection">
 			<p class="section__container--title">Recomendations</p>
 			<section class="section__containerHorizontal">
@@ -326,6 +117,7 @@
 		</section>
 		<!-- END BY ID SECTION -->
 	</main>
+	
 	<footer>
 		<div class="footer__socialMedia">
 			<a title="Linkedin" href="https://www.linkedin.com/in/AshkoreDev/" target="_blank" rel="noopener"
@@ -349,6 +141,6 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="./src/main.js" type="module"></script>
-</body>
 
+</body>
 </html>

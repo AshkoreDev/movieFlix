@@ -1,14 +1,14 @@
 import { lazyLoader } from './utils.js';
 import { getRecomendationsById } from './get.js';
 
-const API_IMG = 'https://image.tmdb.org/t/p/w'; //154
+const API_IMG = 'https://image.tmdb.org/t/p/w'; //300
 const STAR_IMG = 'https://img.icons8.com/fluency/344/star.png';
 
 const cardCategoryNode = document.createDocumentFragment();
 
 function createCard(data, node, container, type) {
 
-	data.forEach(item => {
+	data.forEach((item) => {
 
 		const cardContainer = document.createElement('article');
 		const cardImg = document.createElement('img');
@@ -25,11 +25,11 @@ function createCard(data, node, container, type) {
 			cardTitle.textContent = item.name;
 		}
 
-		item.poster_path
-			? cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`)
-			: cardImg.setAttribute('data-img', 'https://img.icons8.com/ios/200/no-camera--v1.png');
+		(item.poster_path)
+			? cardImg.setAttribute('data-img', `${API_IMG}300${item.poster_path}`)
+			: cardImg.setAttribute('data-img', 'https://img.icons8.com/ios/300/no-camera--v1.png');
 
-		cardImg.setAttribute('width', '154');
+		cardImg.setAttribute('width', '300');
 		cardImg.setAttribute('height', '231');
 
 		cardContainer.addEventListener('click', () => location.hash = `#${type}=${item.id}`);
@@ -44,11 +44,11 @@ function createCard(data, node, container, type) {
 	});
 
 	container.appendChild(node);
-}
+};
 
 function createCardWithDetails(data, node, container, type) {
 
-	data.forEach(item => {
+	data.forEach((item) => {
 
 		const cardContainer = document.createElement('article');
 		const cardImg = document.createElement('img');
@@ -59,19 +59,11 @@ function createCardWithDetails(data, node, container, type) {
 		const cardRanking = document.createElement('p');
 		const cardDate = document.createElement('p');
 
-		// if (item.poster_path) {
+		(item.poster_path)
+			? cardImg.setAttribute('data-img', `${API_IMG}300${item.poster_path}`)
+			: cardImg.setAttribute('data-img', 'https://img.icons8.com/ios/300/no-camera--v1.png');
 
-		// 	cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`);
-
-		// } else {
-
-		// 	cardImg.setAttribute('data-img', 'https://img.icons8.com/ios/200/no-camera--v1.png');
-		// }
-		item.poster_path
-			? cardImg.setAttribute('data-img', `${API_IMG}200${item.poster_path}`)
-			: cardImg.setAttribute('data-img', 'https://img.icons8.com/ios/200/no-camera--v1.png');
-
-		cardImg.setAttribute('width', '154');
+		cardImg.setAttribute('width', '300');
 		cardImg.setAttribute('height', '231');
 
 		cardRankingIcon.setAttribute('src', STAR_IMG);
@@ -111,7 +103,7 @@ function createCardWithDetails(data, node, container, type) {
 	});
 
 	container.appendChild(node);
-}
+};
 
 function createOneCard(data, node, container, type) {
 
@@ -176,11 +168,11 @@ function createOneCard(data, node, container, type) {
 
 	node.append(cardContainer);
 	container.append(node);
-}
+};
 
 function createCategoryCard(data, node, container) {
 
-	data.forEach(item => {
+	data.forEach((item) => {
 
 		const categoryCard = document.createElement('article');
 		const categoryTitle = document.createElement('h5');
@@ -197,6 +189,6 @@ function createCategoryCard(data, node, container) {
 	});
 
 	container.appendChild(node);
-}
+};
 
 export { createCard, createCardWithDetails, createOneCard, createCategoryCard };
